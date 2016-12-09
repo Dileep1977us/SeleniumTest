@@ -1,0 +1,16 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Test Data Creation-Orderlab for Data Only Accounts">
+
+<test name="Login test">
+    <classes>
+        <class name="com.comcast.orderlab.testcases.OrderLabLoginTest"></class>  
+    </classes>
+</test>
+
+<test name="CreateDataOnlyAccounts">
+    <classes>
+        <class name="com.comcast.orderlab.testcases.CreateDataOnlyAccounts"></class>  
+    </classes>
+</test>
+
+</suite>
