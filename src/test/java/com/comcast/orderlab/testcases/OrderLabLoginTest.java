@@ -1,5 +1,7 @@
 package com.comcast.orderlab.testcases;
 
+import java.io.IOException;
+
 import org.openqa.selenium.support.PageFactory;
 import org.testng.SkipException;
 import org.testng.annotations.BeforeTest;
@@ -27,7 +29,7 @@ public class OrderLabLoginTest extends OrderLabTestCore {
 	
 	@Test(dataProvider = "getData")
 
-	public static void main(String UserName, String Password) throws InterruptedException {
+	public static void main(String UserName, String Password) throws InterruptedException, IOException {
 		// TODO Auto-generated method stub
 
 	LoginPage loginOrderlab = PageFactory.initElements(driver, LoginPage.class);

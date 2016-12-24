@@ -33,14 +33,16 @@ public class Configurations {
 	public static final String ShowOffers= "//*[@id=\"callOffers\"]";
 
 	//Select Offers-Data
-	public static final String AddtoCart="//*[@id=\"linkTVSelectAndCustomize1\"]";
+	public static final String X1ExconomyPlus="//*[@id=\"linkTVSelectAndCustomize1\"]";
+	public static final String Extreme105Internet="//*[@id=\"linkTVSelectAndCustomize1\"]";
+	
 
 	//AddOnData
 	public static final String InternetOptions="//*[@id=\"nav-bar-HIGH_SPEED_DATA\"]/a/span";
 	public static final String LeaseModemRad = "//*[@id=\"choice_1_1\"]/div[2]/span[1]";
+	public static final String OwnedModemRad = "//*[@id=\"choice_1_2\"]/div[2]/span[1]";
 	public static final String AddOnNext ="//*[@id=\"gotoChannelOpt\"]";
-	public static final String IntNext="//*[@id=\"gotoChannelOpt\"]";
-	
+	public static final String DeviceNext="//*[@id=\"gotoChannelOpt\"]";
 	
 	//Lease
 	public static final String WorkListRad="//*[@id=\"choice_1_2\"]/div[2]/span";
@@ -65,13 +67,21 @@ public class Configurations {
 	public static final String Pwd1="//*[@id=\"password\"]";
 	public static final String Pwd2="//*[@id=\"confirmPassword\"]";
 	public static final String RecoveryQuestion="//*[@id=\"verify_Select\"]/ul/li/a/span";
+	
+	public static final String Ques = "//*[@id=\"verify_Select\"]/ul/li/ul/li[2]/a";
 	public static final String Drink="//*[@id=\"verify_Select\"]/ul/li/ul/li[2]/a";
 	public static final String RecoveryAnswer="//*[@id=\"answer_secret_question\"]";
 	public static final String ContinueSecurely="//*[@id=\"cartNextButton\"]/input";
 	public static final String EmailSuccess="//*[@id=\"approvedUserId\"]/p";
+	
+	//*[@id="verify_Select"]/ul/li/ul/li[2]/a
+
+	//*[@id="answer_secret_question"]
 
 	//Install
-
+	
+	public static final String Pro = "//*[@id=\"install-delivery-type\"]/div[1]/div[2]/span[1]" ;
+	public static final String Self = "//*[@id=\"install-delivery-type\"]/div[2]/div[2]/span[1]" ;
 	public static final String Calender="//*[@id=\"install-header\"]/h3";
 	public static final String InstallSel="//*[@id=\"nav-steps\"]/div/input";
 	public static final String DateCell="//*[@id=\"install-month-table\"]/tbody/tr[{row}]/td[{col}]";

@@ -1,6 +1,12 @@
 package com.comcast.orderlab.common.pages;
 
+import java.io.File;
+import java.io.IOException;
+
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -36,7 +42,7 @@ public class LoginPage   {
 
 
 	
-	public SearchAddress doLogin(String UserName, String Password)
+	public SearchAddress doLogin(String UserName, String Password) throws IOException
 	{
 		//WebDriverWait wait = new WebDriverWait(driver, 10000);
        
@@ -45,18 +51,27 @@ public class LoginPage   {
 		password.sendKeys(Password);
 		signin.click();
 		
+		/*
+		
 		boolean erroPresent= false;
 		try
 		{
-		    WebElement error = errorMsg;
-		    erroPresent = error.isDisplayed();		
+			String error = errorMsg.getText();
+			System.out.println(error);
+			erroPresent= true;
+			File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+			FileUtils.copyFile(scrFile, new File("c:\\Invalid Login.jpg"));		
 		}
 		catch (Exception ex) {
-			erroPresent= false;
+			File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+			FileUtils.copyFile(scrFile, new File("c:\\capturescreen2.jpg"));
 		}
 		System.out.println(erroPresent);
+		//System.out.println(error);
 	
-		Assert.assertFalse(erroPresent);
+		Assert.assertFalse(erroPresent);*/
+		
+		
 
 		return PageFactory.initElements(driver, SearchAddress.class);
 		

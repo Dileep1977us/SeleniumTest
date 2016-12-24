@@ -34,7 +34,7 @@ public class SelectDataPlan {
 	public WebElement selectData;
 	
 		
-	public void selectDataPlan()
+	public SelectDataOffers selectDataOnlyPlan()
 	
 	{
 		WebDriverWait wait = new WebDriverWait(driver,10000);
@@ -49,7 +49,45 @@ public class SelectDataPlan {
 
 		ShowOffers.click();
 		
-		//return PageFactory.initElements(driver, SelectDataOffers.class);
+		return PageFactory.initElements(driver, SelectDataOffers.class);
+		
+	}
+	
+	public SelectDataOffers selectVoiceOnlyPlan()
+	
+	{
+		WebDriverWait wait = new WebDriverWait(driver,10000);
+		wait.until(ExpectedConditions.elementToBeClickable(ShowOffers));
+				
+				
+		WebElement Data =  selectData;
+		Data.click();
+		
+		WebElement Video =  selectVideo;
+		Video.click();	
+
+		ShowOffers.click();
+		
+		return PageFactory.initElements(driver, SelectDataOffers.class);
+		
+	}
+	
+	public SelectDataOffers selectVideoOnlyPlan()
+	
+	{
+		WebDriverWait wait = new WebDriverWait(driver,10000);
+		wait.until(ExpectedConditions.elementToBeClickable(ShowOffers));
+				
+				
+		WebElement Voice =  selectVoice;
+		Voice.click();
+		
+		WebElement Data =  selectData;
+		Data.click();	
+
+		ShowOffers.click();
+		
+		return PageFactory.initElements(driver, SelectDataOffers.class);
 		
 	}
 	

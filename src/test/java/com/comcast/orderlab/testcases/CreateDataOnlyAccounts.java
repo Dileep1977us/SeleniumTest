@@ -6,10 +6,15 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import com.comcast.orderlab.common.pages.LoginPage;
+import com.comcast.orderlab.common.pages.CustomerInfo;
+import com.comcast.orderlab.common.pages.Install;
 import com.comcast.orderlab.common.pages.OrderLabTestCore;
+import com.comcast.orderlab.common.pages.Payment;
 import com.comcast.orderlab.common.pages.SearchAddress;
+import com.comcast.orderlab.common.pages.Submit;
+import com.comcast.orderlab.dataflow.pages.SelectDataOffers;
 import com.comcast.orderlab.dataflow.pages.SelectDataPlan;
+import com.comcast.orderlab.dataflow.pages.SelectEquipement;
 import com.comcast.orderlab.util.testExcel;
 
 
@@ -29,14 +34,20 @@ public class CreateDataOnlyAccounts extends OrderLabTestCore {
 	
 	@Test(dataProvider = "getData")
 
-	public static void main(String StAddress, String Apt,String Zip,String Salutation,String FirstName,
-			String LastName,String Phone,String DOB,String Email,
-			String Ssn,String Pwd,String RecoveryAnswer,String CardNumb,String ExpMon,String ExpYear,String Cvv) throws InterruptedException {
-		// TODO Auto-generated method stub
+	public static void main(String Address,String Apt,String Zip,String salutation,String firstname,String lastname	,String phone,String dob,String email,String ssn,String pwd,String answer,String card,String exp,String	year,String cvv) throws InterruptedException 
+	
+	{
 		
 		SearchAddress addressSearch = PageFactory.initElements(driver, SearchAddress.class);
-		SelectDataPlan dataplan =addressSearch.searchAddress(StAddress, Apt, Zip, Salutation, FirstName, LastName, Phone, DOB, Email, Ssn, Pwd, RecoveryAnswer, CardNumb, ExpMon, ExpYear, Cvv);
-		dataplan.selectDataPlan();
+		SelectDataPlan dataplan =addressSearch.searchAddress(Address, Apt, Zip);
+		SelectDataOffers dataOffer = dataplan.selectDataOnlyPlan();
+		SelectEquipement Eqp = dataOffer.X1Exconomy();
+		CustomerInfo CI =Eqp.selectPurchasedEquipment();
+		Install Install =CI.customerInfo(salutation, firstname, lastname, phone, dob, email, ssn, pwd, answer, card, exp, year, cvv);
+		Payment MakePayment = Install.selectPro();
+		Submit OrderSubmit = MakePayment.ccPayemnt(firstname, lastname, card, exp, year, cvv);
+		OrderSubmit.submitOrder();
+		
 	}
 	
 	@DataProvider
